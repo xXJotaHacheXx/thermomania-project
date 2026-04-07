@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Termos personalizados de alta calidad. Diseña tu termo ideal con tus propias imágenes y textos.">
+    <title>Inicio | Thermomania AG</title>
+
+    <script>
+        if (window.location.pathname.endsWith('/thermomania-project/')) {
+            window.location.replace('index.html');
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="img/thermomania.png" alt="Thermomania AG - Logo" class="logo" onclick="location.href='index.html'">
+        <nav aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <div class="menu-item">
+                <a href="catalogo.html">Catálogo</a>
+                <div class="submenu">
+                    <a href="catalogo.html?categoria=stanley">Stanley</a>
+                    <a href="catalogo.html?categoria=yeti">Yeti</a>
+                    <a href="catalogo.html?categoria=personalizados">Personalizados</a>
+                </div>
+            </div>
+            <a href="cuenta.html">Cuenta</a>
+            <a href="carrito.html">Carrito</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="gestor.html" data-rol-minimo="editor">Gestor</a>
+            <a href="logs.html" data-rol-minimo="admin">Logs</a>
+            <span id="nav-rol-badge" class="nav-rol-badge" style="display:none"></span>
+        </nav>
+
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Cambiar a modo oscuro"
+            title="Cambiar tema">🌙</button>
+
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-parallax-layer" aria-hidden="true">
+                <span class="hero-particle" style="--i:0"></span>
+                <span class="hero-particle" style="--i:1"></span>
+                <span class="hero-particle" style="--i:2"></span>
+                <span class="hero-particle" style="--i:3"></span>
+                <span class="hero-particle" style="--i:4"></span>
+                <span class="hero-particle" style="--i:5"></span>
+            </div>
+            <h1>Termos personalizados con tu diseño</h1>
+            <p class="hero-subtitle">Sube tu imagen o texto y crea tu termo ideal. Calidad premium, diseño único.</p>
+            <div class="cta-buttons">
+                <a href="catalogo.html" class="btn btn-primary btn-magnetic" data-log="hero-cta-catalogo">Explorar
+                    catálogo</a>
+                <a href="catalogo.html" class="btn btn-secondary btn-magnetic"
+                    data-log="hero-cta-personalizar">Personalizar ahora</a>
+            </div>
+        </section>
+
+        <section class="seccion-destacados"
+            style="max-width: 1200px; margin: 4rem auto; padding: 0 1rem; text-align: center;">
+            <h2 style="color: #2c3e50; margin-bottom: 2rem;">🌟 Productos Destacados</h2>
+
+            <div id="grid-destacados"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <p>Cargando los mejores termos...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Thermomania AG</h3>
+                <p>Termos personalizados de calidad premium</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="cuenta.html">Mi cuenta</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="contacto.html">Ayuda</a></li>
+                    <li><a href="#">Envíos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Thermomania AG. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/rbac.js"></script>
+    <script src="js/logging.js"></script>
+    <script type="module" src="js/app-main.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>

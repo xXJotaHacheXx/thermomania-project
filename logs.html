@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Visor de Logs • Thermomania</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- CSS separado -->
+    <link rel="stylesheet" href="css/logs.css">
+</head>
+
+<body>
+    <header>
+        <h1>Visor de Logs • Thermomania</h1>
+        <div class="toolbar">
+            <button class="secondary" id="pauseBtn">Pausar</button>
+            <span class="badge" id="status">Desconectado</span>
+            <button id="exportBtn">Exportar JSONL</button>
+            <button class="secondary" id="clearBtn">Limpiar</button>
+        </div>
+    </header>
+
+
+    <div class="controls">
+        <label>Level:
+            <select id="level">
+                <option value="">(todos)</option>
+                <option>info</option>
+                <option>warn</option>
+                <option>error</option>
+            </select>
+        </label>
+        <label>Service:
+            <select id="service">
+                <option value="">(todos)</option>
+                <option>thermomania-backend</option>
+                <option>thermomania-frontend</option>
+            </select>
+        </label>
+        <label>Búsqueda:
+            <input id="search" type="text" placeholder="texto libre (message, path, context...)" />
+        </label>
+        <button class="secondary" id="apply">Aplicar filtros</button>
+    </div>
+
+    <div class="loglist" id="loglist">
+        <div class="row header">
+            <div>timestamp (UTC)</div>
+            <div>level</div>
+            <div>service</div>
+            <div>mensaje / meta</div>
+        </div>
+    </div>
+
+    <div class="footer">Mostrando en vivo desde <code>/logs/sse</code> y precarga de <code>/logs/recent</code>.</div>
+
+    <!-- JS separado -->
+    <script src="js/logs.js"></script>
+</body>
+
+</html>

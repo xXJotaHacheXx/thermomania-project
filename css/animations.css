@@ -1,0 +1,219 @@
+/* animations.css — Thermomania AG — Parte 3 */
+
+/* ── 1. SCROLL ANIMATIONS ─────────────────────────────────
+   Estado inicial: invisible + desplazado hacia abajo
+   Estado final (.visible): opaco + en posición
+   La transición está aquí, el JS solo agrega .visible
+─────────────────────────────────────────────────────────── */
+.observe-me {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.observe-me.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── 2. SHOW / HIDE SUAVE ─────────────────────────────────
+   Animación de height + opacity sin display:none
+─────────────────────────────────────────────────────────── */
+.smooth-toggle {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ── 3A. PARALLAX HERO ────────────────────────────────────
+   La capa de partículas y textos se mueven con JS
+─────────────────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+.hero h1,
+.hero .hero-subtitle {
+    transition: transform 0.12s ease-out;
+    will-change: transform;
+}
+.hero-parallax-layer {
+    position: absolute;
+    inset: -20%;
+    pointer-events: none;
+    transition: transform 0.15s ease-out;
+    will-change: transform;
+}
+.hero-particle {
+    position: absolute;
+    width: clamp(40px, 5vw, 80px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    top:  calc(15% + var(--i) * 13%);
+    left: calc(8%  + var(--i) * 14%);
+    animation: floatParticle 4s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i) * 0.5s);
+}
+@keyframes floatParticle {
+    from { transform: translateY(0)   scale(1); }
+    to   { transform: translateY(-18px) scale(1.1); }
+}
+
+/* ── 3B. EFECTO MAGNÉTICO ─────────────────────────────────
+   La transición de retorno al soltar el mouse
+─────────────────────────────────────────────────────────── */
+.btn-magnetic {
+    transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.25s ease;
+    will-change: transform;
+}
+.btn-magnetic:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* ── HOVER ANIMADO genérico en tarjetas ───────────────────*/
+.producto {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.producto:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+/* ── 4. CARRUSEL ──────────────────────────────────────────*/
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    user-select: none;
+}
+.carousel-track {
+    display: flex;
+    will-change: transform;
+    /* La transición la inyecta JS al hacer goTo */
+}
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+.carousel-slide img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.65));
+    color: #fff;
+}
+.carousel-caption h3 { margin: 0 0 .25rem; font-size: 1.4rem; }
+.carousel-caption p  { margin: 0; opacity: .85; }
+
+/* Controles prev / next */
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.25);
+    border: none;
+    color: #fff;
+    font-size: 1.6rem;
+    padding: .5rem .9rem;
+    cursor: pointer;
+    border-radius: 50%;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 2;
+}
+.carousel-prev { left:  .75rem; }
+.carousel-next { right: .75rem; }
+.carousel-prev:hover,
+.carousel-next:hover {
+    background: rgba(255,255,255,0.45);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Indicadores (dots) */
+.carousel-dots {
+    position: absolute;
+    bottom: .75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: .5rem;
+    z-index: 2;
+}
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.45);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.carousel-dot.active {
+    background: #fff;
+    transform: scale(1.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-slide img { height: 240px; }
+    .carousel-caption h3 { font-size: 1rem; }
+    .carousel-prev,
+    .carousel-next { font-size: 1.2rem; padding: .4rem .7rem; }
+}
+
+/* ── Parte 5: header compacto al hacer scroll ────────────── */
+header {
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+header.scrolled {
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+
+/* ── Parte 5: lazy loading manual ────────────────────────── */
+img[data-src] {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+img.lazy-loaded {
+    opacity: 1;
+}
+
+/* ── Parte 5: notificación con rAF ───────────────────────── */
+.notificacion {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: #2c3e50;
+    color: #fff;
+    padding: .75rem 1.25rem;
+    border-radius: 8px;
+    font-size: .9rem;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+.notificacion.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.notificacion-info  { background: #2980b9; }
+.notificacion-exito { background: #27ae60; }
+.notificacion-error { background: #c0392b; }

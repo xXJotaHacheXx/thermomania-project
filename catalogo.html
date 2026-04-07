@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Catálogo completo de termos personalizables. Stanley, Yeti y más marcas de calidad.">
+    <title>Catálogo | Thermomania AG</title>
+
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/catalogo.css">
+</head>
+
+<body>
+
+    <!-- HEADER CON MENÚ PERSISTENTE -->
+    <header>
+        <img src="img/thermomania.png" alt="Thermomania AG - Logo" class="logo" onclick="location.href='index.html'">
+
+        <nav aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <div class="menu-item">
+                <a href="catalogo.html">Catálogo</a>
+                <div class="submenu">
+                    <a href="catalogo.html?categoria=stanley">Stanley</a>
+                    <a href="catalogo.html?categoria=yeti">Yeti</a>
+                    <a href="catalogo.html?categoria=personalizados">Personalizados</a>
+                </div>
+            </div>
+            <a href="cuenta.html">Cuenta</a>
+            <a href="carrito.html">Carrito</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="gestor.html" data-rol-minimo="admin">Gestor</a>
+            <a href="logs.html" data-rol-minimo="admin">Logs</a>
+        </nav>
+
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Cambiar a modo oscuro" title="Cambiar tema">🌙</button>
+
+    </header>
+
+    <!-- BREADCRUMBS -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+            <li>
+                <a href="index.html">Inicio</a>
+                <span class="separator" aria-hidden="true">›</span>
+            </li>
+            <li><span class="current" aria-current="page">Catálogo</span></li>
+        </ol>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <section class="catalogo">
+            <h1>Catálogo de Termos</h1>
+            <p class="subtitulo">Descubre nuestra selección de termos de alta calidad. Todos personalizables a tu gusto.
+            </p>
+
+            <!-- 🔍 Búsqueda Avanzada -->
+            <section class="busqueda-avanzada-contenedor" aria-labelledby="titulo-busqueda-avanzada">
+                <h2 id="titulo-busqueda-avanzada">Búsqueda avanzada</h2>
+
+                <form class="busqueda-avanzada" id="form-avanzada" method="GET">
+                    <!-- Categoría -->
+                    <div class="campo">
+                        <label for="categoria">Categoría</label>
+                        <select id="categoria" name="categoria">
+                            <option value="">Todas</option>
+                            <option value="stanley">Stanley</option>
+                            <option value="yeti">Yeti</option>
+                            <option value="personalizados">Personalizados</option>
+                        </select>
+                    </div>
+
+                    <!-- Rango de precio -->
+                    <div class="campo">
+                        <label for="min">Precio mínimo (MXN)</label>
+                        <input type="number" id="min" name="min" min="0" placeholder="0" inputmode="numeric">
+                    </div>
+                    <div class="campo">
+                        <label for="max">Precio máximo (MXN)</label>
+                        <input type="number" id="max" name="max" min="0" placeholder="2000" inputmode="numeric">
+                    </div>
+                    
+                    <!-- Acciones -->
+                    <div class="acciones">
+                        <button type="submit" class="btn-filtrar">Aplicar filtros</button>
+                        <button type="button" class="btn-limpiar" id="btn-limpiar">Limpiar</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Grid de Productos — renderizado dinámico desde API -->
+            <div class="grid"></div>
+            <p id="sin-resultados" style="display:none;text-align:center;color:#7f8c8d;padding:2rem">No se encontraron
+                productos con esos filtros.</p>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Thermomania AG</h3>
+                <p>Termos personalizados de calidad premium</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="cuenta.html">Mi cuenta</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="contacto.html">Ayuda</a></li>
+                    <li><a href="#">Envíos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Thermomania AG. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/rbac.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/logging.js"></script>
+    <script src="js/catalogo.js"></script>
+</body>
+
+</html>

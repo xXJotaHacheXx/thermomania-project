@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Exitoso | Thermomania AG</title>
+    <link rel="stylesheet" href="css/general.css">
+    <style>
+        .exito-container {
+            text-align: center;
+            padding: 4rem 2rem;
+            min-height: 50vh;
+        }
+
+        .icono-exito {
+            font-size: 5rem;
+            color: #27ae60;
+            margin-bottom: 1rem;
+        }
+
+        .exito-container h1 {
+            color: #2c3e50;
+        }
+
+        .exito-container p {
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="img/thermomania.png" alt="Logo" class="logo" onclick="location.href='index.html'">
+    </header>
+
+    <main>
+        <section class="exito-container">
+            <div class="icono-exito">✅</div>
+            <h1>¡Gracias por tu compra!</h1>
+            <p>Tu pago se procesó correctamente. Estamos preparando tu termo.</p>
+            <p><strong>ID de sesión de Stripe:</strong> <span id="session-id"></span></p>
+            <br>
+            <a href="catalogo.html" class="btn btn-primary">Volver al catálogo</a>
+        </section>
+    </main>
+
+    <script>
+        // 1. Muestra el ID de Stripe en pantalla
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("session-id").textContent = params.get("session_id") || "No disponible";
+
+        // 2. Borramos el carrito de la memoria del navegador
+        localStorage.removeItem("carrito_thermomania");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error del servidor | Thermomania AG</title>
+    <link rel="stylesheet" href="css/general.css">
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 4rem 2rem;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .error-message {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin: 1rem 0;
+        }
+
+        .error-description {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        .btn-secondary:hover {
+            background-color: #bdc3c7;
+        }
+
+        .error-illustration {
+            width: 200px;
+            height: 200px;
+            margin: 2rem 0;
+            opacity: 0.4;
+        }
+
+        .error-details {
+            background-color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 2rem;
+            max-width: 600px;
+        }
+
+        .error-details summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #2c3e50;
+            user-select: none;
+        }
+
+        .error-details p {
+            margin-top: 1rem;
+            text-align: left;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+
+            .error-message {
+                font-size: 1.5rem;
+            }
+
+            .error-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="img/thermomania.png" alt="Thermomania AG - Logo" class="logo" onclick="location.href='index.html'">
+    <nav>
+        <a href="index.html">Inicio</a>
+        <div class="menu-item">
+            <a href="catalogo.html">Catálogo</a>
+        </div>
+        <a href="cuenta.html">Cuenta</a>
+        <a href="carrito.html">Carrito</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<main>
+    <section class="error-container">
+        <h1 class="error-code">500</h1>
+        
+        <svg class="error-illustration" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="70" y="40" width="60" height="120" rx="5" fill="#e74c3c" opacity="0.3"/>
+            <circle cx="100" cy="30" r="15" fill="#e74c3c" opacity="0.3"/>
+            <line x1="85" y1="90" x2="115" y2="120" stroke="#e74c3c" stroke-width="4" opacity="0.5"/>
+            <line x1="115" y1="90" x2="85" y2="120" stroke="#e74c3c" stroke-width="4" opacity="0.5"/>
+        </svg>
+        
+        <h2 class="error-message">Error interno del servidor</h2>
+        
+        <p class="error-description">
+            Lo sentimos, algo salió mal en nuestro servidor. Nuestro equipo técnico 
+            ha sido notificado y está trabajando para resolver el problema lo antes posible.
+        </p>
+        
+        <div class="error-actions">
+            <a href="index.html" class="btn btn-primary">Volver al inicio</a>
+            <button onclick="location.reload()" class="btn btn-secondary">Reintentar</button>
+            <a href="contacto.html" class="btn btn-secondary">Reportar problema</a>
+        </div>
+
+        <details class="error-details">
+            <summary>Información para desarrolladores</summary>
+            <p>
+                <strong>Código de error:</strong> 500 Internal Server Error<br>
+                <strong>Timestamp:</strong> <span id="timestamp"></span><br>
+                <strong>Sugerencias:</strong><br>
+                • Verifica la configuración del servidor<br>
+                • Revisa los logs de error<br>
+                • Comprueba permisos de archivos<br>
+                • Valida la conexión a la base de datos
+            </p>
+        </details>
+    </section>
+</main>
+
+<script src="js/navigation.js"></script>
+<script>
+    // Mostrar timestamp actual
+    document.getElementById('timestamp').textContent = new Date().toLocaleString('es-MX');
+</script>
+</body>
+</html>

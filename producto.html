@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Termo | Thermomania AG</title>
+    <link rel="stylesheet" href="css/general.css">
+    <style>
+        /* Estilos rápidos específicos para esta página */
+        .producto-container { max-width: 1200px; margin: 4rem auto; padding: 0 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .producto-galeria { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; }
+        .producto-galeria img { max-width: 100%; height: auto; border-radius: 8px; max-height: 500px; object-fit: contain; }
+        .producto-info h1 { color: #2c3e50; font-size: 2.5rem; margin-bottom: 1rem; }
+        .producto-precio { color: #3498db; font-size: 2rem; font-weight: bold; margin-bottom: 2rem; }
+        .producto-descripcion { color: #7f8c8d; line-height: 1.6; margin-bottom: 2rem; font-size: 1.1rem; }
+        
+        /* Caja de personalización */
+        .personalizacion-box { background: #f8f9fa; border: 2px dashed #bdc3c7; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+        .personalizacion-box h3 { margin-bottom: 1rem; color: #34495e; }
+        .campo-custom { margin-bottom: 1.5rem; display: flex; flex-direction: column; }
+        .campo-custom label { font-weight: bold; margin-bottom: 0.5rem; color: #2c3e50; }
+        .campo-custom input[type="text"] { padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; }
+        .campo-custom input[type="file"] { padding: 0.5rem 0; }
+        
+        .btn-agregar { background: #27ae60; color: white; border: none; padding: 1rem 2rem; font-size: 1.2rem; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; transition: background 0.3s; }
+        .btn-agregar:hover { background: #219653; }
+        
+        /* Preview de la imagen que sube el cliente */
+        #preview-imagen { max-width: 150px; margin-top: 1rem; border-radius: 8px; display: none; border: 2px solid #3498db; }
+
+        @media (max-width: 768px) {
+            .producto-container { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="img/thermomania.png" alt="Thermomania AG - Logo" class="logo" onclick="location.href='index.html'">
+        <nav aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="cuenta.html">Cuenta</a>
+            <a href="carrito.html">Carrito</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="cargando" style="text-align: center; padding: 5rem; font-size: 1.5rem; color: #7f8c8d;">
+            Buscando detalles del termo...
+        </div>
+
+        <section class="producto-container" id="contenido-producto" style="display: none;">
+            
+            <div class="producto-galeria">
+                <img id="prod-img" src="" alt="Termo">
+            </div>
+
+            <div class="producto-info">
+                <h1 id="prod-nombre">Cargando...</h1>
+                <p class="producto-precio" id="prod-precio">$0.00 MXN</p>
+                <p class="producto-descripcion" id="prod-desc">Cargando descripción del producto...</p>
+
+                <div class="personalizacion-box">
+                    <h3>✨ Personaliza tu termo</h3>
+                    
+                    <div class="campo-custom">
+                        <label for="custom-texto">Texto a grabar (Nombre, frase, etc.):</label>
+                        <input type="text" id="custom-texto" placeholder="Ej. Juan Pérez / 'El mejor papá'">
+                    </div>
+
+                    <div class="campo-custom">
+                        <label for="custom-img">Sube tu diseño o logo (Opcional):</label>
+                        <input type="file" id="custom-img" accept="image/png, image/jpeg">
+                        <img id="preview-imagen" alt="Vista previa de tu diseño">
+                    </div>
+                </div>
+
+                <button class="btn-agregar" id="btn-add-carrito">Agregar al Carrito 🛒</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/producto.js"></script>
+</body>
+</html>

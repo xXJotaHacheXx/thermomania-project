@@ -1,0 +1,194 @@
+/* ===============================
+   ESTILOS CATÁLOGO - Thermomania AG
+   =============================== */
+
+.catalogo { padding: 2rem; }
+
+.catalogo h1 {
+    text-align: center;
+    color: var(--texto-principal);
+    margin-bottom: 1rem;
+}
+
+.subtitulo {
+    text-align: center;
+    color: var(--texto-secundario);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* Filtros */
+.filtros {
+    background-color: var(--bg-tarjetas);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 6px var(--sombra);
+}
+
+.filtros h2 {
+    font-size: 1rem;
+    color: var(--texto-principal);
+    margin-bottom: 1rem;
+}
+
+.filtros-grupo {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+}
+
+/* Grid de productos */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem; margin-top: 2rem;
+}
+
+.producto {
+    background: var(--bg-tarjetas);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--sombra);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto.hidden { display: none; }
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px var(--sombra);
+}
+
+.producto img {
+    width: 100%; height: 250px; object-fit: cover;
+}
+
+.producto-info {
+    padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;
+}
+
+.producto h3 {
+    color: var(--texto-principal);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.producto .precio {
+    color: #3498db; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;
+}
+
+.producto .descripcion {
+    color: var(--texto-secundario); margin-bottom: 1rem; line-height: 1.6;
+}
+
+.caracteristicas {
+    list-style: none; padding: 0; margin: 1rem 0; flex-grow: 1;
+}
+
+.caracteristicas li {
+    color: var(--texto-secundario); padding: 0.25rem 0; font-size: 0.9rem;
+}
+
+.btn-personalizar {
+    width: 100%; padding: 1rem; background-color: #3498db; color: white;
+    border: none; border-radius: 4px; font-weight: bold; cursor: pointer;
+    transition: background-color 0.3s ease; margin-top: auto;
+}
+
+.btn-personalizar:hover { background-color: #2980b9; }
+
+@media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+    .filtros-grupo { flex-direction: column; }
+    .filtro-btn { width: 100%; }
+}
+
+/* ===============================
+   Búsqueda avanzada
+   =============================== */
+.busqueda-avanzada-contenedor {
+    background: var(--bg-tarjetas);
+    padding: 1.5rem; margin: 1rem 0 2rem 0;
+    border-radius: 10px; box-shadow: 0 2px 6px var(--sombra);
+}
+
+.busqueda-avanzada {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem 1.5rem; align-items: end;
+}
+
+.busqueda-avanzada .campo label {
+    display: block; font-weight: 600; color: var(--texto-principal); margin-bottom: .4rem;
+}
+
+.busqueda-avanzada input,
+.busqueda-avanzada select {
+    width: 100%; padding: .6rem .7rem;
+    border: 1px solid var(--borde-color); border-radius: 8px;
+    background: var(--bg-inputs); color: var(--texto-principal); font-size: 0.95rem;
+}
+
+.busqueda-avanzada .checkbox label { font-weight: 500; }
+
+.busqueda-avanzada .acciones {
+    display: flex; gap: .8rem; flex-wrap: wrap;
+}
+
+.btn-filtrar, .btn-limpiar {
+    padding: .7rem 1rem; border: none; border-radius: 8px;
+    cursor: pointer; font-weight: 600; transition: .2s ease;
+}
+
+.btn-filtrar { background: #3498db; color: #fff; }
+.btn-filtrar:hover { background: #2980b9; }
+
+.btn-limpiar { background: var(--bg-hover); color: var(--texto-principal); }
+.btn-limpiar:hover { background: var(--borde-color); }
+
+.filtro-btn {
+    padding: .6rem 1rem; border-radius: 20px;
+    border: 1px solid var(--borde-color);
+    background: var(--bg-tarjetas); color: var(--texto-principal);
+    cursor: pointer; transition: .2s ease;
+}
+.filtro-btn:hover { background: var(--bg-hover); }
+.filtro-btn.active {
+    background: #3498db; color: #fff; border-color: #3498db;
+}
+
+/* ── Buscador de texto ─────────────────────────────────── */
+.buscador-texto-wrap { position: relative; display: flex; align-items: center; margin: 1rem 0; }
+.buscador-icon { position: absolute; left: .85rem; font-size: 1rem; pointer-events: none; }
+.buscador-texto {
+    width: 100%; padding: .6rem 1rem .6rem 2.5rem;
+    border: 1px solid var(--borde-color); border-radius: 8px; font-size: .95rem;
+    background: var(--bg-inputs); color: var(--texto-principal);
+    transition: border-color .2s, box-shadow .2s;
+}
+.buscador-texto:focus {
+    outline: none; border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,.15);
+}
+
+/* ── Loader del catálogo ───────────────────────────────── */
+.catalogo-loader {
+    grid-column: 1 / -1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 3rem 1rem;
+    gap: .75rem; color: var(--texto-secundario);
+}
+.loader-spinner {
+    width: 38px; height: 38px; border: 3px solid var(--borde-color);
+    border-top-color: #3498db; border-radius: 50%; animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Error del catálogo ────────────────────────────────── */
+.catalogo-error {
+    grid-column: 1 / -1; background: #fef2f2; border: 1px solid #fecaca;
+    border-radius: 10px; padding: 2rem; text-align: center; color: #991b1b;
+}
+.catalogo-error span { font-size: 2rem; display: block; margin-bottom: .5rem; }
+
+/* ── Animación scroll ─────────────────────── */
+.observe-me { opacity: 0; transform: translateY(20px); transition: opacity .45s ease, transform .45s ease; }
+.observe-me.visible { opacity: 1; transform: translateY(0); }

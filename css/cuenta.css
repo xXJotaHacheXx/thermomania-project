@@ -1,0 +1,170 @@
+/* ESTILOS CUENTA */
+
+.cuenta { max-width: 500px; margin: 0 auto; }
+.cuenta h1 { text-align: center; color: var(--texto-principal); margin-bottom: 2rem; }
+
+.tabs {
+    display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid var(--borde-color);
+}
+
+.tab-btn {
+    flex: 1; padding: 1rem; background: none; border: none;
+    border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem;
+    font-weight: bold; color: var(--texto-secundario); transition: all 0.3s;
+}
+
+.tab-btn:hover { color: #3498db; }
+.tab-btn.active { color: #3498db; border-bottom-color: #3498db; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.form-cuenta {
+    background: var(--bg-tarjetas); padding: 2rem;
+    border-radius: 8px; box-shadow: 0 2px 8px var(--sombra);
+}
+
+.form-cuenta h2 { color: var(--texto-principal); margin-bottom: 1.5rem; font-size: 1.5rem; }
+
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; color: var(--texto-principal); font-weight: bold; }
+
+.form-group input {
+    width: 100%; padding: 0.75rem; border: 1px solid var(--borde-color);
+    background: var(--bg-inputs); color: var(--texto-principal); border-radius: 4px; font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none; border-color: #3498db; box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-options {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1.5rem; font-size: 0.9rem;
+}
+
+.form-options label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+.link-password { color: #3498db; text-decoration: none; }
+.link-password:hover { text-decoration: underline; }
+
+.btn-submit {
+    width: 100%; padding: 1rem; background: #3498db; color: white;
+    border: none; border-radius: 4px; font-size: 1rem; font-weight: bold;
+    cursor: pointer; transition: background 0.3s;
+}
+
+.btn-submit:hover { background: #2980b9; }
+
+/* === Captcha bonito === */
+.captcha-card {
+    margin: 12px 0 8px; background: linear-gradient(180deg, var(--bg-tarjetas), var(--bg-fondo));
+    color: var(--texto-principal); border: 1px solid var(--borde-color); border-radius: 14px;
+    padding: 16px; box-shadow: var(--sombra); position: relative; overflow: clip;
+}
+
+.captcha-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.captcha-logo { color: #3498db; }
+.captcha-texts h3 { margin: 0; font-size: 1rem; font-weight: 700; }
+.captcha-subtitle { margin: 2px 0 0; color: var(--texto-secundario); font-size: 0.85rem; }
+
+.captcha-body {
+    display: flex; align-items: center; gap: 12px; justify-content: space-between;
+    padding: 12px; border: 1px dashed var(--borde-color); border-radius: 10px;
+}
+
+.captcha-checkbox { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
+.captcha-checkbox input { position: absolute; opacity: 0; pointer-events: none; }
+
+.checkbox-visual {
+    width: 22px; height: 22px; border: 2px solid var(--borde-color);
+    border-radius: 6px; display: inline-block; background: var(--bg-inputs);
+    transition: all .2s ease; position: relative;
+}
+.captcha-checkbox input:checked + .checkbox-visual {
+    border-color: #3498db; background: #3498db;
+}
+.captcha-checkbox input:checked + .checkbox-visual::after {
+    content: ""; position: absolute; left: 6px; top: 2px;
+    width: 6px; height: 12px; border: solid white;
+    border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+
+.checkbox-label { font-size: 0.95rem; }
+
+.captcha-btn {
+    padding: 10px 14px; border-radius: 10px; border: 1px solid #3498db;
+    background: #3498db; color: white; font-weight: 600; cursor: pointer;
+}
+
+.captcha-footer { margin-top: 10px; display: grid; gap: 6px; }
+.status.neutral { color: var(--texto-secundario); font-size: 0.9rem; }
+
+/* ══════════════════════════════════════════════════════════
+   PANEL DE CONFIGURACIÓN — Parte 3
+══════════════════════════════════════════════════════════ */
+.settings-panel { max-width: 700px; margin: 2rem auto; padding: 0 1rem; }
+.settings-panel h2 { font-size: 1.6rem; color: var(--texto-principal); margin-bottom: 1.5rem; }
+
+.settings-card {
+    background: var(--bg-tarjetas); border-radius: 10px;
+    padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px var(--sombra);
+}
+.settings-card h3 { font-size: 1.1rem; color: var(--texto-principal); margin-bottom: 1rem; }
+
+.settings-card input[type="password"],
+.settings-card select {
+    width: 100%; padding: .6rem .8rem; margin-bottom: .75rem;
+    border: 1px solid var(--borde-color); border-radius: 6px;
+    background: var(--bg-inputs); color: var(--texto-principal); font-size: .95rem;
+}
+.settings-card label { display: block; margin-bottom: .5rem; font-size: .9rem; color: var(--texto-secundario); }
+
+/* Botones y MFA */
+.btn-danger { background: #e74c3c; color: #fff; border: none; padding: .6rem 1.2rem; border-radius: 6px; cursor: pointer; }
+.btn-danger:hover { background: #c0392b; }
+
+.mfa-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: .5rem; }
+.toggle-switch { position: relative; display: inline-block; width: 48px; height: 26px; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-slider {
+    position: absolute; inset: 0; background: #ccc; border-radius: 26px;
+    transition: background .3s ease; cursor: pointer;
+}
+.toggle-slider::before {
+    content: ""; position: absolute; width: 20px; height: 20px;
+    left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: transform .3s ease;
+}
+.toggle-switch input:checked + .toggle-slider { background: #27ae60; }
+.toggle-switch input:checked + .toggle-slider::before { transform: translateX(22px); }
+
+/* Sesiones (Resalte Especial) */
+.sesion-item {
+    padding: 1rem; border: 1px solid var(--borde-color); border-radius: 8px;
+    margin-bottom: .8rem; display: flex; justify-content: space-between; align-items: center;
+    background: var(--bg-tarjetas);
+}
+.sesion-info { display: flex; flex-direction: column; gap: .3rem; font-size: .85rem; color: var(--texto-secundario); }
+.sesion-info strong, .sesion-info span { color: var(--texto-principal); font-weight: 500; }
+.sesion-actual { border-color: #3498db; background: var(--bg-hover); }
+.badge-actual { color: #3498db; font-weight: bold; font-size: .8rem; }
+.btn-cerrar-sesion { background: #e74c3c; color: #fff; border: none; padding: .4rem .8rem; border-radius: 5px; cursor: pointer; font-size: .85rem; }
+
+/* MODAL MFA PERSONALIZADO */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center;
+    z-index: 9999; backdrop-filter: blur(4px);
+}
+.modal-content {
+    background: var(--bg-tarjetas); padding: 2.5rem; border-radius: 12px;
+    max-width: 400px; width: 90%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+.mfa-input-group input {
+    width: 100%; padding: 1rem; font-size: 2.5rem; text-align: center;
+    letter-spacing: 0.8rem; border: 2px solid var(--borde-color); border-radius: 8px;
+    margin: 1.5rem 0; font-weight: bold; background: var(--bg-inputs); color: var(--texto-principal);
+}
+.mfa-input-group input:focus { border-color: #3498db; outline: none; }
+.modal-actions { display: flex; gap: 1rem; }
+.modal-actions button { flex: 1; padding: 0.8rem; border-radius: 6px; cursor: pointer; font-weight: bold; }
+.btn-secondary { background: var(--bg-hover); color: var(--texto-secundario); border: 1px solid var(--borde-color); transition: background 0.3s ease; }
+.btn-secondary:hover { background: var(--borde-color); color: var(--texto-principal); }

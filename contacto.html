@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Thermomania AG</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/contacto.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="img/thermomania.png" alt="Thermomania AG - Logo" class="logo" onclick="location.href='index.html'">
+        <nav aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <div class="menu-item">
+                <a href="catalogo.html">Catálogo</a>
+                <div class="submenu">
+                    <a href="catalogo.html?categoria=stanley">Stanley</a>
+                    <a href="catalogo.html?categoria=yeti">Yeti</a>
+                    <a href="catalogo.html?categoria=personalizados">Personalizados</a>
+                </div>
+            </div>
+            <a href="cuenta.html">Cuenta</a>
+            <a href="carrito.html">Carrito</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="gestor.html" data-rol-minimo="admin">Gestor</a>
+            <a href="logs.html" data-rol-minimo="admin">Logs</a>
+        </nav>
+
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Cambiar a modo oscuro" title="Cambiar tema">🌙</button>
+
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+            <li>
+                <a href="index.html">Inicio</a>
+                <span class="separator" aria-hidden="true">›</span>
+            </li>
+            <li><span class="current" aria-current="page">Contacto</span></li>
+        </ol>
+    </nav>
+
+    <main>
+        <section class="contacto">
+            <h1>Contáctanos</h1>
+            <p class="subtitulo">¿Tienes alguna pregunta? Estamos aquí para ayudarte</p>
+
+            <div class="contacto-contenido">
+                <div class="formulario">
+                    <form id="form-contacto">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" required placeholder="Juan Pérez">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" required placeholder="tu@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono (opcional)</label>
+                            <input type="tel" id="telefono" placeholder="+52 123 456 7890">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asunto">Asunto *</label>
+                            <select id="asunto" required>
+                                <option value="">Selecciona un tema</option>
+                                <option value="pedido">Consulta sobre pedido</option>
+                                <option value="personalizacion">Personalización</option>
+                                <option value="envio">Envío y entrega</option>
+                                <option value="devolucion">Devoluciones</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" rows="6" required
+                                placeholder="Escribe tu mensaje aquí..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-enviar">Enviar mensaje</button>
+                    </form>
+                </div>
+
+                <aside class="info-contacto">
+                    <div class="info-card">
+                        <h3>📧 Email</h3>
+                        <p><a href="/cdn-cgi/l/email-protection#741d1a121b34001c1106191b19151a1d155a171b19"><span
+                                    class="__cf_email__"
+                                    data-cfemail="0b62656d644b7f636e796664666a65626a25686466">[email&#160;protected]</span></a>
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>📞 Teléfono</h3>
+                        <p><a href="tel:+525551234567">+52 (55) 5123-4567</a></p>
+                        <p class="horario">Lunes a Viernes: 9:00 - 18:00</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>📍 Ubicación</h3>
+                        <p>Aguascalientes, Aguascalientes<br>México</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>💬 Redes Sociales</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook">Facebook</a>
+                            <a href="#" aria-label="Instagram">Instagram</a>
+                            <a href="#" aria-label="Twitter">Twitter</a>
+                        </div>
+                    </div>
+
+                    <div class="info-card tiempo-respuesta">
+                        <h4>⏱️ Tiempo de respuesta</h4>
+                        <p>Respondemos en menos de 24 horas hábiles</p>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="faq-section">
+                <h2>Preguntas Frecuentes</h2>
+                <div class="faq-grid">
+                    <details class="faq-item">
+                        <summary>¿Cuánto tarda la personalización?</summary>
+                        <p>El proceso de personalización toma de 1 a 2 días hábiles. Después de esto, el envío toma 3-5
+                            días adicionales.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>¿Qué formatos de imagen aceptan?</summary>
+                        <p>Aceptamos JPG, PNG y PDF en alta resolución (mínimo 300 DPI). El tamaño máximo de archivo es
+                            10MB.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>¿Hacen envíos a toda la República?</summary>
+                        <p>Sí, realizamos envíos a todo México. El costo varía según la ubicación y se calcula en el
+                            checkout.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>¿Puedo devolver un termo personalizado?</summary>
+                        <p>Los productos personalizados solo se aceptan como devolución si hay defectos de fabricación.
+                            Contáctanos dentro de los primeros 7 días.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Thermomania AG</h3>
+                <p>Termos personalizados de calidad premium</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="cuenta.html">Mi cuenta</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Thermomania AG. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/rbac.js"></script>
+    <script>
+
+        // Validación y envío del formulario
+        document.getElementById('form-contacto').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            // Simulación de envío
+            alert(`¡Gracias ${nombre}!\n\nTu mensaje ha sido recibido. Te responderemos a ${email} en menos de 24 horas.`);
+
+            // Limpiar formulario
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>

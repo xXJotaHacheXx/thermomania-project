@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta | Thermomania AG</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/cuenta.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="img/thermomania.png" alt="Thermomania AG - Logo" class="logo" onclick="location.href='index.html'">
+        <nav aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <div class="menu-item">
+                <a href="catalogo.html">Catálogo</a>
+                <div class="submenu">
+                    <a href="catalogo.html?categoria=stanley">Stanley</a>
+                    <a href="catalogo.html?categoria=yeti">Yeti</a>
+                    <a href="catalogo.html?categoria=personalizados">Personalizados</a>
+                </div>
+            </div>
+            <a href="cuenta.html">Cuenta</a>
+            <a href="carrito.html">Carrito</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="gestor.html" data-rol-minimo="admin">Gestor</a>
+            <a href="logs.html" data-rol-minimo="admin">Logs</a>
+            <span id="nav-rol-badge" class="nav-rol-badge" style="display:none"></span>
+        </nav>
+
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Cambiar a modo oscuro"
+            title="Cambiar tema">🌙</button>
+
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+            <li>
+                <a href="index.html">Inicio</a>
+                <span class="separator" aria-hidden="true">›</span>
+            </li>
+            <li><span class="current" aria-current="page">Mi Cuenta</span></li>
+        </ol>
+    </nav>
+
+    <main>
+        <section class="cuenta">
+            <h1>Mi cuenta</h1>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="login">Iniciar Sesión</button>
+                <button class="tab-btn" data-tab="register">Crear Cuenta</button>
+            </div>
+
+            <div class="tab-content active" id="login">
+                <form class="form-cuenta" id="form-login" novalidate>
+                    <h2>Bienvenido de nuevo</h2>
+
+                    <div class="form-group">
+                        <label for="email-login">Correo electrónico</label>
+                        <input type="email" id="email-login" name="email" required inputmode="email"
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            title="Ingresa un correo válido. Ejemplo: usuario@dominio.com" placeholder="tu@email.com" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password-login">Contraseña</label>
+                        <input type="password" id="password-login" name="password" required minlength="8"
+                            title="Ingresa tu contraseña (mínimo 8 caracteres)." placeholder="••••••••" />
+                    </div>
+
+                    <div class="captcha-card" role="group" aria-labelledby="captcha-title-login">
+                        <div class="captcha-header">
+                            <svg class="captcha-logo" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill="currentColor"
+                                    d="M12 2a10 10 0 1 0 10 10A10.012 10.012 0 0 0 12 2Zm-1 15-4-4 1.41-1.41L11 13.17l5.59-5.59L18 9Z" />
+                            </svg>
+                            <div class="captcha-texts">
+                                <h3 id="captcha-title-login">Verifica que eres humano</h3>
+                                <p class="captcha-subtitle">Esto nos ayuda a evitar abusos</p>
+                            </div>
+                        </div>
+
+                        <div class="captcha-body">
+                            <label class="captcha-checkbox">
+                                <input type="checkbox" id="captchaCheckLogin" aria-describedby="captcha-help-login" />
+                                <span class="checkbox-visual" aria-hidden="true"></span>
+                                <span class="checkbox-label">No soy un robot</span>
+                            </label>
+
+                            <button type="button" id="captchaBtnLogin" class="captcha-btn" aria-live="polite"
+                                aria-busy="false">
+                                Verificar
+                            </button>
+                        </div>
+
+                        <div class="captcha-footer">
+                            <div id="captchaStatusLogin" class="status neutral" role="status" aria-live="polite">
+                                Marca la casilla y presiona “Verificar”.
+                            </div>
+                            <small id="captcha-help-login" class="captcha-help">
+                                Si tienes problemas, recarga la página o intenta en modo incógnito.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label>
+                            <input type="checkbox" name="remember"> Recordarme
+                        </label>
+                        <a href="#" class="link-password" id="link-forgot">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Iniciar sesión</button>
+                    <div id="loginMsg" style="text-align: center; margin-top: 10px; font-weight: bold;"></div>
+                </form>
+            </div>
+
+            <div class="tab-content" id="register">
+                <form class="form-cuenta" id="form-register" novalidate>
+                    <h2>Crear nueva cuenta</h2>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" required minlength="3"
+                            title="Escribe tu nombre (mínimo 3 caracteres)." placeholder="Juan Pérez" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email-register">Correo electrónico</label>
+                        <input type="email" id="email-register" name="email" required inputmode="email"
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            title="Ingresa un correo válido. Ejemplo: usuario@dominio.com" placeholder="tu@email.com" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password-register">Contraseña</label>
+                        <input type="password" id="password-register" name="password" required minlength="8"
+                            title="Debe tener al menos 8 caracteres, 1 mayúscula y 1 número."
+                            placeholder="Mínimo 8 caracteres" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password-confirm">Confirmar contraseña</label>
+                        <input type="password" id="password-confirm" name="confirm" required
+                            title="Repite la contraseña exactamente igual." placeholder="Repite tu contraseña" />
+                    </div>
+
+                    <div class="form-options">
+                        <label>
+                            <input type="checkbox" name="terms" required>
+                            Acepto los términos y condiciones
+                        </label>
+                    </div>
+
+                    <div class="captcha-card" role="group" aria-labelledby="captcha-title-register">
+                        <div class="captcha-header">
+                            <svg class="captcha-logo" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill="currentColor"
+                                    d="M12 2a10 10 0 1 0 10 10A10.012 10.012 0 0 0 12 2Zm-1 15-4-4 1.41-1.41L11 13.17l5.59-5.59L18 9Z" />
+                            </svg>
+                            <div class="captcha-texts">
+                                <h3 id="captcha-title-register">Verifica que eres humano</h3>
+                                <p class="captcha-subtitle">Esto nos ayuda a evitar abusos</p>
+                            </div>
+                        </div>
+                        <div class="captcha-body">
+                            <label class="captcha-checkbox">
+                                <input type="checkbox" id="captchaCheckRegister"
+                                    aria-describedby="captcha-help-register" />
+                                <span class="checkbox-visual" aria-hidden="true"></span>
+                                <span class="checkbox-label">No soy un robot</span>
+                            </label>
+                            <button type="button" id="captchaBtnRegister" class="captcha-btn" aria-live="polite"
+                                aria-busy="false">
+                                Verificar
+                            </button>
+                        </div>
+                        <div class="captcha-footer">
+                            <div id="captchaStatusRegister" class="status neutral" role="status" aria-live="polite">
+                                Marca la casilla y presiona “Verificar”.
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Crear cuenta</button>
+                    <div id="registroMsg" style="text-align: center; margin-top: 10px; font-weight: bold;"></div>
+                </form>
+            </div>
+        </section>
+
+        <section id="settings-panel" style="display: none; max-width: 600px; margin: 0 auto;">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="tab-perfil">Perfil y Seguridad</button>
+                <button class="tab-btn" data-tab="historial">Historial de Compras</button>
+                <button class="tab-btn" data-tab="tab-sesiones">Sesiones</button>
+            </div>
+
+            <div id="tab-perfil" class="tab-content active form-cuenta">
+                <h2>Seguridad de la Cuenta</h2>
+                <form id="form-password">
+                    <div class="form-group">
+                        <label>Contraseña Actual</label>
+                        <input type="password" id="password-actual" name="password_actual" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nueva Contraseña</label>
+                        <input type="password" id="password-nuevo" name="password_nuevo" required
+                            pattern="(?=.*[A-Z])(?=.*\d).{8,}"
+                            title="Debe tener al menos 8 caracteres, 1 mayúscula y 1 número">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirmar Nueva Contraseña</label>
+                        <input type="password" id="password-confirmar" name="confirm" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Actualizar contraseña</button>
+                    <div id="msg-password"></div>
+                </form>
+
+                <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #eee;">
+
+                <div class="settings-card">
+                    <h3>🔐 Autenticación de dos factores (MFA)</h3>
+                    <div class="mfa-row">
+                        <span>Estado: <strong id="mfa-estado">Inactivo</strong></span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="mfa-toggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p class="settings-hint">Al activar MFA, se te pedirá un código al iniciar sesión.</p>
+                    <div id="msg-mfa" class="settings-msg"></div>
+                </div>
+            </div>
+
+            <div id="historial" class="tab-content">
+                <div class="config-visual-box">
+                    <h2>Mis Pedidos</h2>
+                    <p style="color: var(--texto-secundario); margin-bottom: 1.5rem;">Aquí puedes ver el estado
+                        de todas tus compras.</p>
+
+                    <div id="contenedor-pedidos">
+                        <p>Cargando tu historial...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-sesiones" class="tab-content form-cuenta">
+                <h2>Dispositivos conectados</h2>
+                <p style="color: #7f8c8d; margin-bottom: 1rem; font-size: 0.9rem;">Revisa desde dónde has iniciado
+                    sesión recientemente.</p>
+
+                <div id="lista-sesiones" style="margin-bottom: 2rem;">
+                </div>
+
+                <button id="btn-cerrar-todas"
+                    style="background: #e74c3c; color: white; border: none; padding: 0.8rem; border-radius: 4px; width: 100%; cursor: pointer;">
+                    Cerrar todas las otras sesiones
+                </button>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <button type="button" onclick="Settings.logout()" class="btn-submit"
+                    style="background: #2c3e50; max-width: 250px;">Cerrar sesión</button>
+            </div>
+        </section>
+
+
+        <section class="recovery-section" id="recovery-section" style="display:none; max-width: 500px; margin: 0 auto;">
+            <h2 style="text-align:center; color:#2c3e50; margin-bottom: 2rem;">🔑 Recuperar contraseña</h2>
+
+            <div class="form-cuenta" id="recovery-step1">
+                <p style="margin-bottom: 1rem;">Ingresa tu correo y recibirás un enlace de recuperación.</p>
+                <form id="form-recovery">
+                    <div class="form-group">
+                        <input type="email" id="recovery-email" placeholder="tu@correo.com" required
+                            style="width: 100%; padding: 0.75rem; border: 1px solid #bdc3c7; border-radius: 4px;">
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar enlace</button>
+                </form>
+                <div id="msg-recovery" style="margin-top: 1rem; text-align: center; font-weight: bold;"></div>
+            </div>
+
+            <div class="form-cuenta" id="recovery-step2" style="display:none">
+                <p style="margin-bottom: 1rem;">Ingresa tu nueva contraseña:</p>
+                <form id="form-reset">
+                    <div class="form-group">
+                        <input type="password" id="reset-password" placeholder="Nueva contraseña" required
+                            style="width: 100%; padding: 0.75rem; border: 1px solid #bdc3c7; border-radius: 4px; margin-bottom: 1rem;">
+                        <input type="password" id="reset-confirm" placeholder="Confirmar contraseña" required
+                            style="width: 100%; padding: 0.75rem; border: 1px solid #bdc3c7; border-radius: 4px;">
+                    </div>
+                    <button type="submit" class="btn-submit">Cambiar contraseña</button>
+                </form>
+                <div id="msg-reset" style="margin-top: 1rem; text-align: center; font-weight: bold;"></div>
+            </div>
+
+            <p style="margin-top:1.5rem; text-align:center; font-size:.9rem;">
+                <a href="#" id="link-volver-login" style="color: #3498db; text-decoration: none;">← Volver al login</a>
+            </p>
+        </section>
+
+        <div id="mfa-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-content form-cuenta">
+                <h2 style="margin-bottom: 0.5rem;">🔒 Seguridad MFA</h2>
+                <p style="color: #7f8c8d; font-size: 0.9rem;">Ingresa el código de 6 dígitos que enviamos a tu correo.
+                </p>
+
+                <div class="mfa-input-group">
+                    <input type="text" id="mfa-code-input" maxlength="6" placeholder="••••••" autocomplete="off">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="mfa-cancel-btn" class="btn-secondary">Cancelar</button>
+                    <button type="button" id="mfa-verify-btn" class="btn-submit"
+                        style="margin-top: 0;">Verificar</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Thermomania AG</h3>
+                <p>Termos personalizados de calidad premium</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="cuenta.html">Mi cuenta</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Thermomania AG. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/logging.js"></script>
+    <script src="js/rbac.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/sso.js"></script>
+    <script src="js/cuenta-login.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/recovery.js"></script>
+    <script src="js/pedidos.js"></script>
+    <script>
+        // Funcionalidad de las pestañas (Tabs)
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const tabName = this.getAttribute('data-tab');
+
+                // Si estamos en las pestañas principales (Login/Register)
+                if (tabName === 'login' || tabName === 'register') {
+                    document.querySelectorAll('.cuenta .tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.cuenta .tab-content').forEach(c => c.classList.remove('active'));
+                } else {
+                    // Si estamos en las pestañas del Perfil (Perfil/Preferencias/Sesiones)
+                    document.querySelectorAll('#settings-panel .tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('#settings-panel .tab-content').forEach(c => c.classList.remove('active'));
+                }
+
+                this.classList.add('active');
+                // Buscamos el cuadro destino
+                const cuadroDestino = document.getElementById(tabName);
+
+                // Si el cuadro EXISTE, lo activamos. Si no, no hacemos nada y evitamos que la página se rompa.
+                if (cuadroDestino) {
+                    cuadroDestino.classList.add('active');
+                } else {
+                    console.warn("Intentaste abrir la pestaña '" + tabName + "', pero no encontré su <div id='" + tabName + "'> en el HTML.");
+                }
+
+                if (cuadroDestino) {
+                    cuadroDestino.classList.add('active');
+                    if (tabName === 'historial') {
+                        cargarHistorialPedidos();
+                    }
+                } else {
+                    console.warn("Intentaste abrir la pestaña '" + tabName + "', pero no encontré su <div id='" + tabName + "'> en el HTML.");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

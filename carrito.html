@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito | Thermomania AG</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/carrito.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="img/thermomania.png" alt="Thermomania AG - Logo" class="logo" onclick="location.href='index.html'">
+        <nav aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <div class="menu-item">
+                <a href="catalogo.html">Catálogo</a>
+                <div class="submenu">
+                    <a href="catalogo.html?categoria=stanley">Stanley</a>
+                    <a href="catalogo.html?categoria=yeti">Yeti</a>
+                    <a href="catalogo.html?categoria=personalizados">Personalizados</a>
+                </div>
+            </div>
+            <a href="cuenta.html">Cuenta</a>
+            <a href="carrito.html">Carrito</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="gestor.html" data-rol-minimo="admin">Gestor</a>
+            <a href="logs.html" data-rol-minimo="admin">Logs</a>
+        </nav>
+
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Cambiar a modo oscuro" title="Cambiar tema">🌙</button>
+
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+            <li>
+                <a href="index.html">Inicio</a>
+                <span class="separator" aria-hidden="true">›</span>
+            </li>
+            <li>
+                <a href="catalogo.html">Catálogo</a>
+                <span class="separator" aria-hidden="true">›</span>
+            </li>
+            <li><span class="current" aria-current="page">Carrito</span></li>
+        </ol>
+    </nav>
+
+    <main>
+        <section class="carrito">
+            <h1>Tu carrito de compras</h1>
+
+            <div class="carrito-contenido">
+                <div class="items-list" id="contenedor-items">
+                </div>
+
+                <aside class="resumen">
+                    <h2>Resumen de compra</h2>
+                    <div class="linea-resumen">
+                        <span>Subtotal:</span>
+                        <strong id="resumen-subtotal">$0.00 MXN</strong>
+                    </div>
+                    <div class="linea-resumen">
+                        <span>Envío:</span>
+                        <strong>Gratis</strong>
+                    </div>
+                    <div class="linea-resumen total">
+                        <span>Total:</span>
+                        <strong id="resumen-total">$0.00 MXN</strong>
+                    </div>
+                    <button id="btn-checkout" class="btn-primary">Finalizar compra</button>
+                    <a href="catalogo.html" class="link-seguir">← Seguir comprando</a>
+                </aside>
+            </div>
+
+            <div class="carrito-vacio" style="display: none;">
+                <p>Tu carrito está vacío</p>
+                <a href="catalogo.html" class="btn btn-primary">Explorar productos</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Thermomania AG</h3>
+                <p>Termos personalizados de calidad premium</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="cuenta.html">Mi cuenta</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="contacto.html">Ayuda</a></li>
+                    <li><a href="#">Envíos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Thermomania AG. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/rbac.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+
+</html>
