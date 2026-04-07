@@ -6,7 +6,7 @@ async function cargarHistorialPedidos() {
     if (!token || !contenedor) return;
 
     try {
-        const res = await fetch("http://localhost:3000/api/mis-pedidos", {
+        const res = await fetch(`${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/api/mis-pedidos`, {
             headers: { "Authorization": `Bearer ${token}` }
         });
 

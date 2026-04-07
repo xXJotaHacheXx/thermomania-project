@@ -2,7 +2,7 @@
 // Control de acceso por rol (RBAC) en el frontend
 // Roles: admin | editor | usuario
 
-const API = "http://localhost:3000";
+const API = (window.API_BASE || "https://thermomania-project-production.up.railway.app");
 
 // ── Permisos por rol ───────────────────────────────────────
 const PERMISOS = {

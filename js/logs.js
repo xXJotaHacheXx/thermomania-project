@@ -1,4 +1,4 @@
-const API        = "http://localhost:3000";
+const API        = (window.API_BASE || "https://thermomania-project-production.up.railway.app");
 const list       = document.getElementById("loglist");
 const statusEl   = document.getElementById("status");
 const pauseBtn   = document.getElementById("pauseBtn");

@@ -1,7 +1,7 @@
 // recovery.js — Thermomania AG — Parte 7
 // Recuperación de contraseña por correo (token simulado en logs)
 
-const RECOVERY_API = "http://localhost:3000";
+const RECOVERY_API = (window.API_BASE || "https://thermomania-project-production.up.railway.app");
 
 const Recovery = {
 

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         msgSinResultados.style.display = "none";
 
         try {
-            const res = await fetch(`http://localhost:3000/api/productos${queryString}`);
+            const res = await fetch(`${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/api/productos${queryString}`);
             const productos = await res.json();
 
             gridProductos.innerHTML = ""; // Limpiamos

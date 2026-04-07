@@ -1,7 +1,7 @@
 // settings.js — Thermomania AG
 // Módulo de configuración de usuario
 
-const SETTINGS_API = "http://localhost:3000";
+const SETTINGS_API = (window.API_BASE || "https://thermomania-project-production.up.railway.app");
 
 // ── Token helpers ──────────────────────────────────────────
 const getToken    = ()        => localStorage.getItem("access_token");

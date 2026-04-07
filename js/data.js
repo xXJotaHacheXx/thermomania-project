@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:3000";
+const API_BASE = (window.API_BASE || "https://thermomania-project-production.up.railway.app");
 
 export const Data = {
     async obtenerProductos() {

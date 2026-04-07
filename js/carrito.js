@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     };
                 });
 
-                const res = await fetch("http://localhost:3000/api/checkout", {
+                const res = await fetch(`${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/api/checkout`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         // 1. Pedimos los datos a la base de datos a través del backend
-        const res = await fetch("http://localhost:3000/api/productos/destacados");
+        const res = await fetch(`${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/api/productos/destacados`);
         const productos = await res.json();
 
         // 2. Limpiamos el mensaje de "Cargando..."

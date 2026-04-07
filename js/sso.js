@@ -35,7 +35,7 @@ const SSO = (() => {
         const token = getToken();
         if (token) {
             // Notificar al backend
-            await fetch("http://localhost:3000/auth/logout", {
+            await fetch(`${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/auth/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

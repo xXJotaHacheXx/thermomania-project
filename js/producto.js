@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // 2. Traer la información del backend
     try {
-        const res = await fetch(`http://localhost:3000/api/productos/${idProducto}`);
+        const res = await fetch(`${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/api/productos/${idProducto}`);
         if (!res.ok) throw new Error("Producto no encontrado");
         
         productoData = await res.json();

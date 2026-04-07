@@ -92,7 +92,7 @@ async function cargarProductosAdmin() {
     if(!tbody) return;
 
     try {
-        const res = await fetch("http://localhost:3000/api/productos");
+        const res = await fetch(`${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/api/productos`);
         const productos = await res.json();
 
         if (productos.length === 0) {
@@ -136,7 +136,7 @@ async function abrirModal(id = null) {
     if(inputNuevaCat) inputNuevaCat.style.display = "none";
 
     if(id) {
-        const res = await fetch(`http://localhost:3000/api/productos/${id}`);
+        const res = await fetch(`${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/api/productos/${id}`);
         const p = await res.json();
         
         document.getElementById("prod-nombre").value = p.nombre;
@@ -169,7 +169,7 @@ async function guardarProducto(e) {
         stock: document.getElementById("prod-stock").value === "1"
     };
 
-    const url = id ? `http://localhost:3000/api/productos/${id}` : `http://localhost:3000/api/productos`;
+    const url = id ? `${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/api/productos/${id}` : `${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/api/productos`;
     const metodo = id ? "PUT" : "POST";
 
     try {
@@ -195,7 +195,7 @@ async function eliminarProducto(id) {
     if(!confirm("¿Seguro que deseas eliminar este producto?")) return;
     const token = localStorage.getItem("access_token");
     try {
-        const res = await fetch(`http://localhost:3000/api/productos/${id}`, {
+        const res = await fetch(`${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/api/productos/${id}`, {
             method: 'DELETE',
             headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -213,7 +213,7 @@ async function cargarPedidosAdmin() {
     const token = localStorage.getItem("access_token");
 
     try {
-        const res = await fetch("http://localhost:3000/api/admin/pedidos", {
+        const res = await fetch(`${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/api/admin/pedidos`, {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const pedidos = await res.json();
@@ -240,7 +240,7 @@ async function cargarUsuariosAdmin() {
     const token = localStorage.getItem("access_token");
 
     try {
-        const res = await fetch("http://localhost:3000/auth/admin/usuarios", {
+        const res = await fetch(`${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/auth/admin/usuarios`, {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const usuarios = await res.json();

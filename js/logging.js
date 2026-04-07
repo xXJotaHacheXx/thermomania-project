@@ -1,7 +1,7 @@
 const _cid = localStorage.getItem("cid") || crypto.randomUUID();
 localStorage.setItem("cid", _cid);
 
-const LOG_ENDPOINT = "http://localhost:3000/logs";
+const LOG_ENDPOINT = `${window.API_BASE || "https://thermomania-project-production.up.railway.app"}/logs`;
 const _env         = location.hostname === "localhost" ? "dev" : "prod";
 const _getUserId   = () => { try { return localStorage.getItem("userId") || "anonymous"; } catch { return "anonymous"; } };
 
